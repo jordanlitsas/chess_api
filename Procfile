@@ -1,1 +1,1 @@
-web: java -jar build/libs/spendingTracker-0.0.1-SNAPSHOT.jar
+web: -Dserver.port=8080 java -jar build/libs/spendingTracker-0.0.1-SNAPSHOT.jar
