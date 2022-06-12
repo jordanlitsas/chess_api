@@ -18,7 +18,7 @@ public class SpendingItemController {
 
     @GetMapping("/spend/{userId}")
     @CrossOrigin(origins = {"https://expense-tracker-mobile.herokuapp.com/", "http://localhost:3000"})
-    List<SpendingItem> all(@PathVariable String userId) {
+    List<SpendingItem> withUserId(@PathVariable String userId) {
         List<SpendingItem> expenses = repository.findAll();
         List<SpendingItem> returnExpenses = new ArrayList<SpendingItem>();
         for (int i = 0; i < expenses.size(); i++){
@@ -29,6 +29,11 @@ public class SpendingItemController {
         return returnExpenses;
     }
 
+    @GetMapping("/spend")
+    @CrossOrigin(origins = {"https://expense-tracker-mobile.herokuapp.com/", "http://localhost:3000"})
+    List<SpendingItem> all(@PathVariable String userId) {
+        return repository.findAll();
+    }
     @PostMapping(path = "/spend", consumes = "application/json")
     @CrossOrigin(origins = {"https://expense-tracker-mobile.herokuapp.com/", "http://localhost:3000"})
     SpendingItem spendingItem(@RequestBody SpendingItem spendingItem) {
