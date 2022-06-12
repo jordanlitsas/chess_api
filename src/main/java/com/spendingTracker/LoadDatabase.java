@@ -17,7 +17,7 @@ class LoadDatabase {
     @Bean
     CommandLineRunner initDatabase(CustomUserRepository customUserRepository, CategoryRepository categoryRepository) {
         return args -> {
-            log.info("Preloading " + customUserRepository.save(new CustomUser("0ZXLn0OPfbZTK6OiaUCUeX0sx852")));
+            log.info("Preloading " + customUserRepository.save(new CustomUser("UzkUdIoDOMX0YD33jGGwkEe4b333")));
             log.info("Preloading " + categoryRepository.save(new Category("1", "cafe", 20.00)));
 
         };
