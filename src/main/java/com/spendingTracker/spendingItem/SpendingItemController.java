@@ -20,7 +20,7 @@ public class SpendingItemController {
     }
 
     @PostMapping(path = "/spend", consumes = "application/json")
-    @CrossOrigin("http://localhost:3000")
+    @CrossOrigin("https://expense-tracker-mobile.herokuapp.com/")
     SpendingItem spendingItem(@RequestBody SpendingItem spendingItem) {
         log.info(spendingItem.toString());
         return repository.save(spendingItem);

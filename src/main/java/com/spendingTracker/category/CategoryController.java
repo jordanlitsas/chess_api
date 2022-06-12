@@ -23,7 +23,7 @@ public class CategoryController {
     }
 
     @GetMapping("/category/{userId}")
-    @CrossOrigin("http://localhost:3000")
+    @CrossOrigin("https://expense-tracker-mobile.herokuapp.com/")
     List<String> categoryNamesByUserId(@PathVariable String userId){
         List<Category> categories = repository.findAll();
         List<String> categoryNames = new ArrayList<String>();
@@ -39,7 +39,7 @@ public class CategoryController {
 
 
     @PostMapping(path = "/category", consumes = "application/json")
-    @CrossOrigin("http://localhost:3000")
+    @CrossOrigin("https://expense-tracker-mobile.herokuapp.com/")
     Category newCategory(@RequestBody Category newCategory) {
         log.info(newCategory.toString());
         return repository.save(newCategory);

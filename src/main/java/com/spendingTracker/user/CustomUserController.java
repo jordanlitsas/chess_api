@@ -20,7 +20,7 @@ public class CustomUserController {
     }
 
     @GetMapping("/user/{uId}")
-    @CrossOrigin("http://localhost:3000")
+    @CrossOrigin("https://expense-tracker-mobile.herokuapp.com/")
     CustomUser byUid(@PathVariable String uId) {
         List<CustomUser> users = repository.findAll();
         CustomUser user = new CustomUser();
@@ -36,7 +36,7 @@ public class CustomUserController {
 
 
     @PostMapping(path = "/user", consumes = "application/json")
-    @CrossOrigin("http://localhost:3000")
+    @CrossOrigin("https://expense-tracker-mobile.herokuapp.com/")
         CustomUser newUser(@RequestBody CustomUser newCustomUser) {
             log.info(newCustomUser.toString());
             return repository.save(newCustomUser);
