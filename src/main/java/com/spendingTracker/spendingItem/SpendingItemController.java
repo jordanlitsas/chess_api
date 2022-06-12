@@ -31,7 +31,7 @@ public class SpendingItemController {
 
     @GetMapping("/spend")
     @CrossOrigin(origins = {"https://expense-tracker-mobile.herokuapp.com/", "http://localhost:3000"})
-    List<SpendingItem> all(@PathVariable String userId) {
+    List<SpendingItem> all() {
         return repository.findAll();
     }
     @PostMapping(path = "/spend", consumes = "application/json")
