@@ -22,11 +22,11 @@ public class SpendingItemController {
         List<SpendingItem> expenses = repository.findAll();
         List<SpendingItem> returnExpenses = new ArrayList<SpendingItem>();
         for (int i = 0; i < expenses.size(); i++){
-            if (expenses.get(i).getUserId().equals(userId)){
+            if (expenses.get(i).getUserId() == Float.parseFloat(userId)){
                 returnExpenses.add(expenses.get(i));
             }
         }
-        return expenses;
+        return returnExpenses;
     }
 
     @GetMapping("/spend")
