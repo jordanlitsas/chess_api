@@ -17,6 +17,7 @@ public class SpendingItemController {
     }
 
     @GetMapping("/spend/{userId}")
+    @CrossOrigin("https://expense-tracker-mobile.herokuapp.com/")
     List<SpendingItem> all(@PathVariable String userId) {
         List<SpendingItem> expenses = repository.findAll();
         List<SpendingItem> returnExpenses = new ArrayList<SpendingItem>();
