@@ -26,7 +26,7 @@ public class SpendingItemController {
                 returnExpenses.add(expenses.get(i));
             }
         }
-        return returnExpenses;
+        return expenses;
     }
 
     @GetMapping("/spend")
