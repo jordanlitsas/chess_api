@@ -13,13 +13,13 @@ public class Category {
 
 
 
-    private String userId;
+    private Long userId;
     private String name;
     private double sevenDayLimit;
 
     Category() {}
 
-    public Category(String userId, String name, Double sevenDayLimit) {
+    public Category(Long userId, String name, Double sevenDayLimit) {
         this.userId = userId;
         this.name = name;
         this.sevenDayLimit = sevenDayLimit;
@@ -32,11 +32,11 @@ public class Category {
     public void setId(Long id){
         this.id = id;
     }
-    public String getUserId() {
+    public Long getUserId() {
         return this.userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

@@ -15,12 +15,12 @@ public class SpendingItem {
 
     private Long userId;
     private String category;
-    private float amountSpent;
+    private double amountSpent;
     private Date submitDate;
 
     public SpendingItem(){}
 
-    public SpendingItem(Long userId, String category, float amountSpent, Date submitDate){
+    public SpendingItem(Long userId, String category, double amountSpent, Date submitDate){
         this.userId = userId;
         this.category = category;
         this.amountSpent = amountSpent;
@@ -53,7 +53,7 @@ public class SpendingItem {
     }
 
 
-    public float getAmountSpent() {
+    public double getAmountSpent() {
         return amountSpent;
     }
 
