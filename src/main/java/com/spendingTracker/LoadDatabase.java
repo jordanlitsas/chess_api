@@ -21,12 +21,12 @@ class LoadDatabase {
     @Bean
     CommandLineRunner initDatabase(CustomUserRepository customUserRepository, CategoryRepository categoryRepository, SpendingItemRepository spendingItemRepository) {
         CustomUser user = new CustomUser("UzkUdIoDOMX0YD33jGGwkEe4b333");
-        Category category = new Category(1L, "cafe", 20.00);
-        SpendingItem spendingItem = new SpendingItem(1L, "cafe", 10.00, new Date());
+//        Category category = new Category(1L, "cafe", 20.00);
+//        SpendingItem spendingItem = new SpendingItem(1L, "cafe", 10.00, new Date());
         return args -> {
             log.info("Preloading " + customUserRepository.save(user));
-            log.info("Preloading " + categoryRepository.save(category));
-            log.info("Preloading " + spendingItemRepository.save(spendingItem));
+//            log.info("Preloading " + categoryRepository.save(category));
+//            log.info("Preloading " + spendingItemRepository.save(spendingItem));
 
         };
     }
