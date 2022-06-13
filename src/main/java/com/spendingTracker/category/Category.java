@@ -16,15 +16,24 @@ public class Category {
     private Long userId;
     private String name;
     private double sevenDayLimit;
+    private String expenseType;
 
     public Category() {}
 
-    public Category(Long userId, String name, Double sevenDayLimit) {
+    public Category(Long userId, String name, Double sevenDayLimit, String expenseType) {
         this.userId = userId;
         this.name = name;
         this.sevenDayLimit = sevenDayLimit;
+        this.expenseType = expenseType;
+
+    }
+    public String getExpenseType() {
+        return expenseType;
     }
 
+    public void setExpenseType(String expenseType) {
+        this.expenseType = expenseType;
+    }
     public Long getId(){
         return this.id;
     }
@@ -67,12 +76,13 @@ public class Category {
         com.spendingTracker.category.Category category = ( com.spendingTracker.category.Category) o;
         return
                 Objects.equals(this.id, category.id) && Objects.equals(this.userId, category.userId)
-                && Objects.equals(this.name, category.name) && Objects.equals(this.sevenDayLimit, category.sevenDayLimit);
+                && Objects.equals(this.name, category.name) && Objects.equals(this.sevenDayLimit, category.sevenDayLimit)
+                        && Objects.equals(this.expenseType, category.expenseType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.userId, this.name, this.sevenDayLimit);
+        return Objects.hash(this.id, this.userId, this.name, this.sevenDayLimit, this.expenseType);
     }
     @Override
     public String toString() {
@@ -81,6 +91,7 @@ public class Category {
                 ", userId='" + userId + '\'' +
                 ", name='" + name + '\'' +
                 ", sevenDayLimit=" + sevenDayLimit +
+                ", expenseType="+expenseType +
                 '}';
     }
 }

@@ -33,6 +33,7 @@ public class ExpenseController {
            Expense expense =  new Expense();
            expense.setCategory(categories.get(i).getName());
            expense.setWeeklyLimit(categories.get(i).getSevenDayLimit());
+           expense.setExpenseType(categories.get(i).getExpenseType());
            expenses.add(expense);
        }
 
