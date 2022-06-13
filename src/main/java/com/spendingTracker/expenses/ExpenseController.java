@@ -50,31 +50,30 @@ public class ExpenseController {
        return expenses;
     }
 
-    @GetMapping("/expenses/{userId}/{intervalNumber}/{intervalTerm}")
-    @CrossOrigin(origins = {"https://expense-tracker-mobile.herokuapp.com/", "http://localhost:3000"})
-    Long withUserId(@PathVariable String userId, @PathVariable int intervalNumber, @PathVariable String intervalTerm) {
-        List<Expense> expenses = new ArrayList<>();
-        List<Category> categories = expenseService.getCategoriesWithUserId(Long.parseLong(userId));
-        List<SpendingItem> spendingItems = expenseService.getSpendingItemsWithUserId((Long.parseLong(userId)));
-        LocalDate currentDate = LocalDate.now();
-        LocalDate daysAgo = LocalDate.now().minusDays(intervalNumber);
-        Long days  = ChronoUnit.DAYS.between(currentDate, daysAgo);
-//        for (int i = 0; i < categories.size(); i++){
-//            Expense expense =  new Expense();
-//            expense.setCategory(categories.get(i).getName());
-//            expense.setWeeklyLimit(categories.get(i).getSevenDayLimit());
-//            expense.setExpenseType(categories.get(i).getExpenseType());
-//            expenses.add(expense);
-//        }
+//    @GetMapping("/expenses/{userId}/{{intervalTerm}")
+//    @CrossOrigin(origins = {"https://expense-tracker-mobile.herokuapp.com/", "http://localhost:3000"})
+//    Long withUserId(@PathVariable String userId, @PathVariable int intervalNumber, @PathVariable String intervalTerm) {
+//        List<Expense> expenses = new ArrayList<>();
+//        List<Category> categories = expenseService.getCategoriesWithUserId(Long.parseLong(userId));
+//        List<SpendingItem> spendingItems = expenseService.getSpendingItemsWithUserId((Long.parseLong(userId)));
 //
-//        for (int i = 0; i < spendingItems.size(); i++){
-//            for (int j = 0; j < expenses.size(); j++){
-//                if (spendingItems.get(i).getCategory().equals(expenses.get(j).getCategory())){
-//                    expenses.get(j).addPurchase(spendingItems.get(i).getAmountSpent());
-//                }
-//            }
-//        }
-        return days;
-    }
+//
+////        for (int i = 0; i < categories.size(); i++){
+////            Expense expense =  new Expense();
+////            expense.setCategory(categories.get(i).getName());
+////            expense.setWeeklyLimit(categories.get(i).getSevenDayLimit());
+////            expense.setExpenseType(categories.get(i).getExpenseType());
+////            expenses.add(expense);
+////        }
+////
+////        for (int i = 0; i < spendingItems.size(); i++){
+////            for (int j = 0; j < expenses.size(); j++){
+////                if (spendingItems.get(i).getCategory().equals(expenses.get(j).getCategory())){
+////                    expenses.get(j).addPurchase(spendingItems.get(i).getAmountSpent());
+////                }
+////            }
+////        }
+//        return days;
+//    }
 
 }
