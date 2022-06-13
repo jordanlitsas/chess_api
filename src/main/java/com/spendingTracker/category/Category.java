@@ -18,15 +18,26 @@ public class Category {
     private double sevenDayLimit;
     private String expenseType;
 
+
+    private boolean isSavings;
     public Category() {}
 
-    public Category(String userId, String name, Double sevenDayLimit, String expenseType) {
+    public Category(String userId, String name, Double sevenDayLimit, String expenseType, boolean isSavings) {
         this.userId = Long.parseLong(userId);
         this.name = name;
         this.sevenDayLimit = sevenDayLimit;
         this.expenseType = expenseType;
-
+        this.isSavings = isSavings;
     }
+
+    public boolean isSavings() {
+        return isSavings;
+    }
+
+    public void setSavings(boolean savings) {
+        isSavings = savings;
+    }
+
     public String getExpenseType() {
         return expenseType;
     }
@@ -77,12 +88,13 @@ public class Category {
         return
                 Objects.equals(this.id, category.id) && Objects.equals(this.userId, category.userId)
                 && Objects.equals(this.name, category.name) && Objects.equals(this.sevenDayLimit, category.sevenDayLimit)
-                        && Objects.equals(this.expenseType, category.expenseType);
+                        && Objects.equals(this.expenseType, category.expenseType)
+                        && Objects.equals(this.isSavings, category.isSavings);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.userId, this.name, this.sevenDayLimit, this.expenseType);
+        return Objects.hash(this.id, this.userId, this.name, this.sevenDayLimit, this.expenseType, this.isSavings);
     }
     @Override
     public String toString() {
@@ -91,7 +103,8 @@ public class Category {
                 ", userId='" + userId + '\'' +
                 ", name='" + name + '\'' +
                 ", sevenDayLimit=" + sevenDayLimit +
-                ", expenseType="+expenseType +
+                ", expenseType="+expenseType +", " +
+                "isSavings="+isSavings +
                 '}';
     }
 }
