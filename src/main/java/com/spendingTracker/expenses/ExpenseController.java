@@ -24,12 +24,26 @@ public class ExpenseController {
 
     @GetMapping("/expenses/{userId}")
     @CrossOrigin(origins = {"https://expense-tracker-mobile.herokuapp.com/", "http://localhost:3000"})
-    List<Category> withUserId(@PathVariable String userId) {
+    List<Expense> withUserId(@PathVariable String userId) {
        List<Expense> expenses = new ArrayList<>();
        List<Category> categories = expenseService.getCategoriesWithUserId(Long.parseLong(userId));
-       Expense expense = new Expense(100.00, 50.00, "demo");
-       expenses.add(expense);
-       return categories;
+       List<SpendingItem> spendingItems = expenseService.getSpendingItemsWithUserId((Long.parseLong(userId)));
+
+       for (int i = 0; i < categories.size(); i++){
+           Expense expense =  new Expense();
+           expense.setCategory(categories.get(i).getName());
+           expense.setWeeklyLimit(categories.get(i).getSevenDayLimit());
+           expenses.add(expense);
+       }
+
+       for (int i = 0; i < spendingItems.size(); i++){
+           for (int j = 0; j < expenses.size(); j++){
+               if (spendingItems.get(i).getCategory().equals(expenses.get(j).getCategory())){
+                   expenses.get(j).addPurchase(spendingItems.get(i).getAmountSpent());
+               }
+           }
+       }
+       return expenses;
     }
 
 }

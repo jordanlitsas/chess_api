@@ -2,15 +2,19 @@ package com.spendingTracker.expenses;
 
 public class Expense {
     private double weeklyLimit;
-    private double weeklyAmountSpent;
+    private double weeklyAmountSpent = 0;
     private String category;
 
+    public Expense(){}
     public Expense(double weeklyLimit, double weeklyAmountSpent, String category) {
         this.weeklyLimit = weeklyLimit;
         this.weeklyAmountSpent = weeklyAmountSpent;
         this.category = category;
     }
 
+    public void addPurchase(double amountSpent){
+        this.weeklyAmountSpent += amountSpent;
+    }
     public double getWeeklyLimit() {
         return weeklyLimit;
     }
@@ -18,6 +22,7 @@ public class Expense {
     public void setWeeklyLimit(double weeklyLimit) {
         this.weeklyLimit = weeklyLimit;
     }
+
 
     public double getWeeklyAmountSpent() {
         return weeklyAmountSpent;

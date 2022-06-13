@@ -2,6 +2,7 @@ package com.spendingTracker.expenses;
 
 import com.spendingTracker.category.Category;
 import com.spendingTracker.category.CategoryRepository;
+import com.spendingTracker.spendingItem.SpendingItem;
 import com.spendingTracker.spendingItem.SpendingItemRepository;
 
 import java.util.ArrayList;
@@ -28,5 +29,19 @@ public class ExpenseService {
             }
         }
         return categories;
+    }
+
+    public List<SpendingItem> getSpendingItemsWithUserId(Long userId){
+        List<SpendingItem> spendingItems = new ArrayList<>();
+        List<SpendingItem> allSpendingItems = spendingItemRepository.findAll();
+        for (int i = 0; i < allSpendingItems.size(); i++){
+            if (allSpendingItems.get(i).getUserId().equals(userId)){
+                SpendingItem tempSpendingItem = new SpendingItem();
+                tempSpendingItem.setCategory(allSpendingItems.get(i).getCategory());
+                tempSpendingItem.setAmountSpent(allSpendingItems.get(i).getAmountSpent());
+                spendingItems.add(tempSpendingItem);
+            }
+        }
+        return spendingItems;
     }
 }

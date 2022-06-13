@@ -57,7 +57,7 @@ public class SpendingItem {
         return amountSpent;
     }
 
-    public void setAmountSpent(float amountSpent) {
+    public void setAmountSpent(double amountSpent) {
         this.amountSpent = amountSpent;
     }
 
