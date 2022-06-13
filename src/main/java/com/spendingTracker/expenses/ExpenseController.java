@@ -27,6 +27,7 @@ public class ExpenseController {
     List<Expense> withUserId(@PathVariable String userId) {
        List<Expense> expenses = new ArrayList<>();
        Expense expense = new Expense(100.00, 50.00, "demo");
+       expenses.add(expense);
        return expenses;
     }
 
