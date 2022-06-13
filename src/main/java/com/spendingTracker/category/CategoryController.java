@@ -30,7 +30,7 @@ public class CategoryController {
         List<String> categoryNames = new ArrayList<String>();
 
         for (int i = 0; i < categories.size(); i++){
-            if (categories.get(i).getUserId().equals(userId)){
+            if (categories.get(i).getUserId().equals(Long.parseLong(userId))){
                 categoryNames.add(categories.get(i).getName());
             }
         }
