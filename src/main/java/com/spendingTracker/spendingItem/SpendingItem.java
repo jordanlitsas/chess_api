@@ -3,6 +3,7 @@ import com.spendingTracker.spendingItem.SpendingItem;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Date;
 
@@ -16,17 +17,19 @@ public class SpendingItem {
     private Long userId;
     private String category;
     private double amountSpent;
-    private Date submitDate;
+    private LocalDate submitDate;
 
 
 
-    public SpendingItem(){}
+    public SpendingItem(){
+        this.submitDate = LocalDate.now();
+    }
 
     public SpendingItem(Long userId, String category, double amountSpent){
         this.userId = userId;
         this.category = category;
         this.amountSpent = amountSpent;
-        this.submitDate = new Date();
+        this.submitDate = LocalDate.now();
     }
 
 
@@ -64,11 +67,11 @@ public class SpendingItem {
         this.amountSpent = amountSpent;
     }
 
-    public Date getSubmitDate() {
+    public LocalDate getSubmitDate() {
         return submitDate;
     }
 
-    public void setSubmitDate(Date date) {
+    public void setSubmitDate(LocalDate date) {
         this.submitDate = date;
     }
 
