@@ -22,11 +22,11 @@ public class SpendingItem {
 
     public SpendingItem(){}
 
-    public SpendingItem(Long userId, String category, double amountSpent, Date submitDate){
+    public SpendingItem(Long userId, String category, double amountSpent){
         this.userId = userId;
         this.category = category;
         this.amountSpent = amountSpent;
-        this.submitDate = submitDate;
+        this.submitDate = new Date();
     }
 
 
