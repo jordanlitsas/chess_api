@@ -52,7 +52,7 @@ public class Category {
         return this.sevenDayLimit;
     }
 
-    public void setSevenDayLimit(float sevenDayLimit){
+    public void setSevenDayLimit(double sevenDayLimit){
         this.sevenDayLimit = sevenDayLimit;
     }
 

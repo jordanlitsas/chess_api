@@ -25,16 +25,19 @@ public class CategoryController {
 
     @GetMapping("/category/{userId}")
     @CrossOrigin(origins = {"https://expense-tracker-mobile.herokuapp.com/", "http://localhost:3000"})
-    List<String> categoryNamesByUserId(@PathVariable String userId){
+    List<Category> categoryNamesByUserId(@PathVariable String userId){
         List<Category> categories = repository.findAll();
-        List<String> categoryNames = new ArrayList<String>();
+        List<Category> returnCategories = new ArrayList<Category>();
 
         for (int i = 0; i < categories.size(); i++){
             if (categories.get(i).getUserId().equals(Long.parseLong(userId))){
-                categoryNames.add(categories.get(i).getName());
+                Category tempCategory = new Category();
+                tempCategory.setName(categories.get(i).getName());
+                tempCategory.setSevenDayLimit(categories.get(i).getSevenDayLimit());
+                returnCategories.add(tempCategory);
             }
         }
-        return categoryNames;
+        return returnCategories;
     }
 
 
