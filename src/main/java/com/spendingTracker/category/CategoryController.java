@@ -46,7 +46,9 @@ public class CategoryController {
     @CrossOrigin(origins = {"https://expense-tracker-mobile.herokuapp.com/", "http://localhost:3000"})
     Category newCategory(@RequestBody Category newCategory) {
         log.info(newCategory.toString());
-        return repository.save(newCategory);
+        Category savedCategory = repository.save(newCategory);
+        log.info(savedCategory.toString());
+        return savedCategory;
     }
 
 }
