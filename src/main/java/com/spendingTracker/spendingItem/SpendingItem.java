@@ -18,15 +18,26 @@ public class SpendingItem {
     private double amountSpent;
     private Date submitDate;
 
+
+    private String expenseType;
+
     public SpendingItem(){}
 
-    public SpendingItem(Long userId, String category, double amountSpent, Date submitDate){
+    public SpendingItem(Long userId, String category, double amountSpent, Date submitDate, String expenseType){
         this.userId = userId;
         this.category = category;
         this.amountSpent = amountSpent;
         this.submitDate = submitDate;
+        this.expenseType = expenseType;
     }
 
+    public String getExpenseType() {
+        return expenseType;
+    }
+
+    public void setExpenseType(String expenseType) {
+        this.expenseType = expenseType;
+    }
 
     public Long getId() {
         return id;
@@ -74,12 +85,12 @@ public class SpendingItem {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SpendingItem that = (SpendingItem) o;
-        return Objects.equals(id, that.id) && Objects.equals(userId, that.userId) && Objects.equals(category, that.category)  && Objects.equals(amountSpent, that.amountSpent) && Objects.equals(submitDate, that.submitDate);
+        return Objects.equals(id, that.id) && Objects.equals(expenseType, that.expenseType)&& Objects.equals(userId, that.userId) && Objects.equals(category, that.category)  && Objects.equals(amountSpent, that.amountSpent) && Objects.equals(submitDate, that.submitDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId, category, amountSpent, submitDate);
+        return Objects.hash(id, userId, category, amountSpent, submitDate, expenseType);
     }
 
     @Override
@@ -90,6 +101,7 @@ public class SpendingItem {
                 ", category='" + category + '\'' +
                 ", amountSpent=" + amountSpent +
                 ", submitDate=" + submitDate +
+                ", expenseType="+expenseType +
                 '}';
     }
 }
