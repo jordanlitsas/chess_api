@@ -20,8 +20,8 @@ public class Category {
 
     public Category() {}
 
-    public Category(Long userId, String name, Double sevenDayLimit, String expenseType) {
-        this.userId = userId;
+    public Category(String userId, String name, Double sevenDayLimit, String expenseType) {
+        this.userId = Long.parseLong(userId);
         this.name = name;
         this.sevenDayLimit = sevenDayLimit;
         this.expenseType = expenseType;
