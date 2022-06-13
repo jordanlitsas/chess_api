@@ -25,6 +25,7 @@ public class ExpenseService {
                 Category tempCategory = new Category();
                 tempCategory.setName(allCategories.get(i).getName());
                 tempCategory.setSevenDayLimit(allCategories.get(i).getSevenDayLimit());
+                tempCategory.setExpenseType(allCategories.get(i).getExpenseType());
                 categories.add(tempCategory);
             }
         }
