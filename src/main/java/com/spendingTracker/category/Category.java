@@ -17,7 +17,7 @@ public class Category {
     private String name;
     private double sevenDayLimit;
 
-    Category() {}
+    public Category() {}
 
     public Category(Long userId, String name, Double sevenDayLimit) {
         this.userId = userId;
